@@ -2,7 +2,7 @@
 
 # Based on
 # https://github.com/aspect-build/rules_js/blob/main/docs/faq.md#can-i-use-bazel-managed-pnpm
-load("@aspect_rules_js//npm:npm_import.bzl", "npm_translate_lock", "pnpm_repository")
+load("@aspect_rules_js//npm:repositories.bzl", "npm_translate_lock", "pnpm_repository")
 
 _REQUIRED_NPM_PACKAGE_NAMES = ["google-protobuf", "@types/google-protobuf"]
 
