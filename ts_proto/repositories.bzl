@@ -4,9 +4,9 @@ These are needed for local dev, and users must install them as well.
 See https://docs.bazel.build/versions/main/skylark/deploying.html#dependencies
 """
 
+load("@bazel_tools//tools/build_defs/repo:git.bzl", _git_repository = "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", _http_archive = "http_archive")
 load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
-load("@bazel_tools//tools/build_defs/repo:git.bzl", _git_repository = "git_repository")
 
 def http_archive(name, **kwargs):
     maybe(_http_archive, name = name, **kwargs)
@@ -79,16 +79,16 @@ def rules_ts_proto_dependencies():
 
     http_archive(
         name = "aspect_bazel_lib",
-        sha256 = "79623d656aa23ad3fd4692ab99786c613cd36e49f5566469ed97bc9b4c655f03",
-        strip_prefix = "bazel-lib-1.23.3",
-        url = "https://github.com/aspect-build/bazel-lib/archive/refs/tags/v1.23.3.tar.gz",
+        sha256 = "688354ee6beeba7194243d73eb0992b9a12e8edeeeec5b6544f4b531a3112237",
+        strip_prefix = "bazel-lib-2.8.1",
+        url = "https://github.com/aspect-build/bazel-lib/releases/download/v2.8.1/bazel-lib-v2.8.1.tar.gz",
     )
 
     http_archive(
         name = "aspect_rules_js",
-        sha256 = "9f51475dd2f99abb015939b1cf57ab5f15ef36ca6d2a67104450893fd0aa5c8b",
-        strip_prefix = "rules_js-1.16.0",
-        url = "https://github.com/aspect-build/rules_js/archive/refs/tags/v1.16.0.tar.gz",
+        sha256 = "4cab6898f0ff8048e32640cce06a47aa4b92b2fb330d055940f95f24c8ebb868",
+        strip_prefix = "rules_js-2.0.1",
+        url = "https://github.com/aspect-build/rules_js/releases/download/v2.0.1/rules_js-v2.0.1.tar.gz",
     )
 
     # git_repository(
@@ -107,9 +107,9 @@ def rules_ts_proto_dependencies():
     # https://github.com/aspect-build/rules_ts/releases/tag/v1.2.0
     http_archive(
         name = "aspect_rules_ts",
-        sha256 = "acb20a4e41295d07441fa940c8da9fd02f8637391fd74a14300586a3ee244d59",
-        strip_prefix = "rules_ts-1.2.0",
-        url = "https://github.com/aspect-build/rules_ts/archive/refs/tags/v1.2.0.tar.gz",
+        sha256 = "f69a6452b129d39d9b05f3dff8b1057185bb195b4daf0cff419988de757c6c31",
+        strip_prefix = "rules_ts-2.4.2",
+        url = "https://github.com/aspect-build/rules_ts/releases/download/v2.4.2/rules_ts-v2.4.2.tar.gz",
     )
 
     # git_repository(
@@ -120,7 +120,7 @@ def rules_ts_proto_dependencies():
 
     git_repository(
         name = "com_github_grpc_grpc_web",
-#        commit = "f6eb07753a3d004ea0022eec541bed975e7fa0e8",
+        #        commit = "f6eb07753a3d004ea0022eec541bed975e7fa0e8",
         remote = "https://github.com/gonzojive/grpc-web.git",
         branch = "reddaly-dev",
     )
