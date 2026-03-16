@@ -131,12 +131,12 @@ func (up *uberPlugin) generateCode(ctx context.Context, req *pluginpb.CodeGenera
 		return nil, fmt.Errorf("error running ts definition codegen plugin: %w", err)
 	}
 
-	grpcResp, err := runPluginWithParameter(up.genGRPCPluginPath, "import_style=commonjs+dts,mode=grpcweb", processGRPCResponse, importsReplacer)
+	grpcResp, err := runPluginWithParameter(up.genGRPCPluginPath, "import_style=commonjs+dts,mode=grpcwebtext", processGRPCResponse, importsReplacer)
 	if err != nil {
 		return nil, fmt.Errorf("error running grpc definition codegen plugin: %w", err)
 	}
 
-	grpcTypescriptResp, err := runPluginWithParameter(up.genGRPCPluginPath, "import_style=typescript,mode=grpcweb", importsReplacer, grpcWebTypescriptModeProcessor)
+	grpcTypescriptResp, err := runPluginWithParameter(up.genGRPCPluginPath, "import_style=typescript,mode=grpcwebtext", importsReplacer, grpcWebTypescriptModeProcessor)
 	if err != nil {
 		return nil, fmt.Errorf("error running grpc definition codegen plugin (typescript): %w", err)
 	}
